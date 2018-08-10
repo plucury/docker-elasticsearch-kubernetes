@@ -19,3 +19,4 @@ RUN rm -rf /elasticsearch/plugins/x-pack/platform/linux-x86_64
 
 ADD search-guard-certificates/truststore.jks /elasticsearch/config/truststore.jks
 ADD search-guard-certificates/node-certificates/CN=waiverforeverk8s.com-keystore.jks /elasticsearch/config/keystore.jks
+ADD search-guard-certificates/client-certificates/CN=sgadmin-keystore.jks /elasticsearch/config/admin-keystore.jks
