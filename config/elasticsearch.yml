@@ -15,7 +15,7 @@ path:
   logs: /data/log
 
 bootstrap:
-  memory_lock: true
+  memory_lock: ${MEMORY_LOCK}
 
 http:
   enabled: ${HTTP_ENABLE}
@@ -34,6 +34,7 @@ xpack.security.enabled: false
 xpack.monitoring.enabled: false
 xpack.graph.enabled: false
 xpack.watcher.enabled: false
+xpack.ml.enabled: false
 
 searchguard.authcz.admin_dn:
   - CN=sgadmin

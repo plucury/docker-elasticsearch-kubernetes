@@ -6,8 +6,8 @@ Ready to use lean (120MB) Elasticsearch Docker image ready for using within a Ku
 
 ## Current software
 
-* OpenJDK JRE 8u112
-* Elasticsearch 5.2.2
+* OpenJDK JRE 8u131
+* Elasticsearch 5.6.4
 
 ## Run
 
