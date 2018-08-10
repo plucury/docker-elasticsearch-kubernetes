@@ -1,4 +1,4 @@
-FROM quay.io/pires/docker-elasticsearch:5.6.4
+FROM quay.io/pires/docker-elasticsearch:6.3.2
 
 MAINTAINER pjpires@gmail.com
 
@@ -11,12 +11,18 @@ ENV NAMESPACE default
 ENV DISCOVERY_SERVICE elasticsearch-discovery
 ENV MEMORY_LOCK false
 
-RUN /elasticsearch/bin/elasticsearch-plugin install x-pack -b
-RUN /elasticsearch/bin/elasticsearch-plugin install com.floragunn:search-guard-5:5.6.4-19.1 -b
+# Create a temporary folder for Elastic Search ourselves.
+ENV ES_TMPDIR /tmp
 
 # remove ml part becasue alpine doesn't support
 RUN rm -rf /elasticsearch/plugins/x-pack/platform/linux-x86_64
+RUN rm -rf /elasticsearch/plugins/x-pack/x-pack-ml/platform/linux-x86_64
+
+RUN /elasticsearch/bin/elasticsearch-plugin install -b com.floragunn:search-guard-6:6.3.2-22.3
+
+RUN chmod +x -R plugins/search-guard-6/tools/*.sh
 
 ADD search-guard-certificates/truststore.jks /elasticsearch/config/truststore.jks
 ADD search-guard-certificates/node-certificates/CN=waiverforeverk8s.com-keystore.jks /elasticsearch/config/keystore.jks
 ADD search-guard-certificates/client-certificates/CN=sgadmin-keystore.jks /elasticsearch/config/admin-keystore.jks
+

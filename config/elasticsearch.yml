@@ -8,11 +8,14 @@ node:
   ingest: ${NODE_INGEST}
   max_local_storage_nodes: ${MAX_LOCAL_STORAGE_NODES}
 
+processors: ${PROCESSORS:1}
+
 network.host: ${NETWORK_HOST}
 
 path:
   data: /data/data
   logs: /data/log
+  repo: ${REPO_LOCATIONS}
 
 bootstrap:
   memory_lock: ${MEMORY_LOCK}
@@ -38,11 +41,14 @@ xpack.ml.enabled: false
 
 searchguard.authcz.admin_dn:
   - CN=sgadmin
+
 searchguard.ssl.transport.keystore_filepath: keystore.jks
 searchguard.ssl.transport.keystore_password: 514e4edd5962c21a0402
 searchguard.ssl.transport.truststore_filepath: truststore.jks
 searchguard.ssl.transport.truststore_password: 5137bbec2b594ce379f4
 searchguard.ssl.transport.enforce_hostname_verification: false
+
+searchguard.enterprise_modules_enabled: false
 
 # searchguard.ssl.http.enabled: true
 # searchguard.ssl.http.keystore_filepath: keystore.jks
