@@ -55,3 +55,5 @@ searchguard.enterprise_modules_enabled: false
 # searchguard.ssl.http.keystore_password: 514e4edd5962c21a0402
 # searchguard.ssl.http.truststore_filepath: truststore.jks
 # searchguard.ssl.http.truststore_password: 5137bbec2b594ce379f4
+
+s3.client.default.endpoint: s3.amazonaws.com

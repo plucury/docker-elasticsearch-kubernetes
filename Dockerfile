@@ -26,3 +26,4 @@ ADD search-guard-certificates/truststore.jks /elasticsearch/config/truststore.jk
 ADD search-guard-certificates/node-certificates/CN=waiverforeverk8s.com-keystore.jks /elasticsearch/config/keystore.jks
 ADD search-guard-certificates/client-certificates/CN=sgadmin-keystore.jks /elasticsearch/config/admin-keystore.jks
 
+RUN /elasticsearch/bin/elasticsearch-plugin install -b repository-s3
